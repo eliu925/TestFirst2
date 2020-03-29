@@ -18,8 +18,8 @@ class Mammal {
 
 class Cat extends Mammal{
     constructor (name,color){
-        super()
-        this.name = name;
+        super(name)
+   
         this.color = color;
 
     }
@@ -28,9 +28,9 @@ class Cat extends Mammal{
     }
     
     haveBaby (color){
-        let newBaby = new Mammal (`Baby ${this.name}`);
+        let newBaby = new Mammal (`Baby ${this.name}`, color);
         this.offspring.push(newBaby);
-        newBaby.color = color;
+     
 
         return newBaby;
     }   
@@ -40,7 +40,7 @@ class Cat extends Mammal{
 class Dog extends Mammal {
     constructor (name, breed){
         super()
-        this.name = name;
+
         this.breed = breed;
     }
 
@@ -49,9 +49,9 @@ class Dog extends Mammal {
     }
 
     haveBaby (breed){
-        let newBaby = new Mammal (`Baby ${this.name}`)
+        let newBaby = new Mammal (`Baby ${this.name}`, breed)
         this.offspring.push (newBaby);
-        newBaby.breed = breed;
+  
 
         return newBaby;
     }
