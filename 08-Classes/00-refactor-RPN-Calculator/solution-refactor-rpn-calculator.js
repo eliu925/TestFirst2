@@ -1,18 +1,19 @@
-/* eslint-disable no-unused-vars, no-throw-literal*/
+ /* eslint-disable no-unused-vars, no-throw-literal*/
 
 /*
   Refactor the constructor function below and use ES2015 Class Syntax
 */
 
-function RPNCalculator() {
-  this.numStack = [];
+class RPNCalculator {
+  constructor(){
+    this.numStack = [];
 }
 
-RPNCalculator.prototype.push = function (num) {
+push(num) {
   this.numStack.push(num);
 };
 
-RPNCalculator.prototype.popCompute = function (operationFunc) {
+popCompute (operationFunc) {
   if (this.numStack.length < 2) {
     throw 'rpnCalculatorInstance is empty';
   } else {
@@ -23,7 +24,7 @@ RPNCalculator.prototype.popCompute = function (operationFunc) {
   }
 };
 
-RPNCalculator.prototype.plus = function () {
+plus () {
   this.popCompute((first, second) => first + second);
 
   /* does this arrow function syntax look funky? It's missing a return statement! AND a code block!
@@ -37,18 +38,20 @@ RPNCalculator.prototype.plus = function () {
   */
 };
 
-RPNCalculator.prototype.value = function () {
+value () {
   return this.numStack[this.numStack.length - 1];
 };
 
-RPNCalculator.prototype.minus = function () {
+minus() {
   this.popCompute((first, second) => second - first);
 };
 
-RPNCalculator.prototype.times = function () {
+times () {
   this.popCompute((first, second) => first * second);
 };
 
-RPNCalculator.prototype.divide = function () {
+divide () {
   this.popCompute((first, second) => second / first);
 };
+
+}
